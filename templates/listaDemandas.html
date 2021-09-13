@@ -1,0 +1,37 @@
+<h3 class="display-5">Demandas a vencer</h3>
+<table class="table table-striped table-bordered table-responsive">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Situação</th>
+        <th scope="col">csp</th>
+        <th scope="col">historico_demanda</th>
+        <th scope="col">usu_petros</th>
+        <th scope="col">tipo_controle</th>
+        <th scope="col">dat_ini</th>
+        <th scope="col">dat_fim</th>
+        <th scope="col">dat_prevista</th>
+        <th scope="col">dat_prorrogacao</th>
+        <th scope="col">qtd_prorrogacao</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for demanda in demandas %}
+    <tr>
+
+        <th scope="row">{{demanda.id_demanda}}</th>
+        <td>{{demanda.situacao}}</td>
+        <td>{{demanda.csp.num_csp}}</td>
+        <td>{{demanda.historico_demanda.dsc_hist_demanda}}</td>
+        <td>{{demanda.usu_petros}}</td>
+        <td>{{demanda.tipo_controle}}</td>
+        <td>{{demanda.dat_ini}}</td>
+        <td>{{demanda.dat_fim}}</td>
+        <td>{{demanda.dat_prevista}}</td>
+        <td>{{demanda.dat_prorrogacao}}</td>
+        <td>{{demanda.qtd_prorrogacao}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

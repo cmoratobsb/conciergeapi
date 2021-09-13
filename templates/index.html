@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron">
+    <h1>Concierge GPB</h1>
+    {% if user.is_anonymous %}
+    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+    {% else %}
+    <div class="alert alert-primary" role="alert">
+        Seja bem-vindo(a) {{ user.get_full_name }}!
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-sm">
+            {% include "listaDemandas.html" %}
+        </div>
+    </div>
+    <div class="col">
+        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
