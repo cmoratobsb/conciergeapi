@@ -29,6 +29,4 @@ template/*
 templates/admin/*
 
 static/*
-/core/migrations/0001_initial.py
-/administrativo/migrations/0001_initial.py
-/demanda/migrations/0001_initial.py
+
