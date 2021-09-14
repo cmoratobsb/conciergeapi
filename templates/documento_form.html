@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load font_awesome %}
+{% block content %}
+
+<div class="container-fluid jumbotron">
+    <div class="d-flex p-2">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+            <h1>Lista de Demandas</h1>
+            <form class="mb-3" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form%}
+                {% buttons %}
+                <div class="btn-group d-flex p-2" role="group" aria-label="Basic example">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-warning">
+                        <a href="{% url 'index' %}">Cancelar</a>
+                    </button>
+                </div>
+                {% endbuttons %}
+            </form>
+
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

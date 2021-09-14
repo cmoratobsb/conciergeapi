@@ -1,17 +1,42 @@
 <!DOCTYPE html>
+{% load bootstrap4 %}
+{% load font_awesome %}
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Concierge GPB</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no">
-    <link rel="icon" href="https://www.geekuniversity.com.br/static/images/favicon.4fcb819d32bf.ico">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="https://getbootstrap.com/docs/4.0/examples/sign-in/signin.css" rel="stylesheet">
-</head>
-<body class="text-center">
-    {% block content %}{% endblock %}
+    <meta charset="utf-8">
+    <title>Obrigações GAP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" , shrink-to-fit="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    {% bootstrap_css %}
+    {% fa_css %}
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">Obrigações GPB</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid">
+            <h1>{{ title|capfirst }}</h1>
+            {% block content %} {% endblock %}
+            </br>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" type="submit">Logout</button>
+        </div>
+
+    </div>
+
+
+</div>
+{% bootstrap_javascript jquery='full' %}
 </body>
 </html>
