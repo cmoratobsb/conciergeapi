@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_bootstrap5',
     'django_forms_bootstrap',
-    'fa',
-    'bootstrap4',
+    'django_bootstrap_icons',
     'django_filters',
+    'django_tables2',
     'rest_framework',
 
     'core',
@@ -178,6 +179,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
     )
 }
