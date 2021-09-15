@@ -2,35 +2,23 @@ from django import forms
 from demanda.models import Documento
 
 
-class DocumentForm(forms.ModelForm):
+class DocumentoForm(forms.ModelForm):
+
+    id = forms.IntegerField(label='id_documento')
+    diretoria = forms.CharField(label='Diretoria', max_length=255)
+    titulo_documento = forms.CharField(label='Titulo do Documento', max_length=255)
+    tipo_documento = forms.CharField(label='Tipo de Documento', max_length=255)
+    situacao = forms.CharField(label='Situação do Documento', max_length=255)
+    responsavel = forms.CharField(label='Responsavel Pelo Documento', max_length=255)
+    dat_ini = forms.DateField(label='Data de Inicio', widget=forms.DateField)
+    dat_fim = forms.DateField(label='Data de Inicio', widget=forms.DateField)
+    dat_prevista = forms.DateField(label='Data de Inicio', widget=forms.DateField)
+    dat_prorrogacao = forms.DateField(label='Data de Prorrogação', widget=forms.DateField,  disabled=True)
+    qtd_prorrogacao = forms.IntegerField(label='Quantidade de Prorrogações', disabled=True)
 
     class Meta:
         model = Documento
         fields = '__all__'
-
-
-# class ContatoForm(forms.Form):
-#     nome = forms.CharField(label='Nome', max_length=100)
-#     email = forms.EmailField(label='E-mail', max_length=100)
-#     assunto = forms.CharField(label='Assunto', max_length=100)
-#     mensagem = forms.CharField(label='Mensagem', widget=forms.Textarea())
-#
-#     def send_mail(self):
-#         nome = self.cleaned_data['nome']
-#         email = self.cleaned_data['email']
-#         assunto = self.cleaned_data['assunto']
-#         mensagem = self.cleaned_data['mensagem']
-#
-#         conteudo = f'Nome: {nome}\nE-mail: {email}\nAssunto: {assunto}\nMensagem: {mensagem}'
-#
-#         mail = EmailMessage(
-#             subject=assunto,
-#             body=conteudo,
-#             from_email='carlos.morato@gmail.com',
-#             to=['carlos.morato@gmail.com', ],
-#             headers={'Reply-To': email}
-#         )
-#         mail.send()
 
 
 

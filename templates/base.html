@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{% load bootstrap4 %}
-{% load font_awesome %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" , shrink-to-fit="no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     {% bootstrap_css %}
-    {% fa_css %}
 
 </head>
 <body>
@@ -29,14 +28,22 @@
             {% block content %} {% endblock %}
             </br>
         </div>
-        <div class="col">
-            <button class="btn btn-primary" type="submit">Logout</button>
-        </div>
 
     </div>
 
 
 </div>
-{% bootstrap_javascript jquery='full' %}
+{% bootstrap_javascript %}
+<script>
+    $(document).ready( function() {
+
+    $("#about-btn").click( function(event) {
+        alert("You clicked the button using JQuery!");
+    });
+});
+
+</script>
+
+
 </body>
 </html>

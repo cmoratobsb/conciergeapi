@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-{% load font_awesome %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
 {% block content %}
 
 <div class="container-fluid jumbotron">
+    {% bootstrap_messages %}
     <div class="d-flex p-2">
         <div class="col">
 
@@ -14,14 +15,14 @@
             <form class="mb-3" method="post">
                 {% csrf_token %}
                 {% bootstrap_form form%}
-                {% buttons %}
+
                 <div class="btn-group d-flex p-2" role="group" aria-label="Basic example">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="button" class="btn btn-warning">
                         <a href="{% url 'index' %}">Cancelar</a>
                     </button>
                 </div>
-                {% endbuttons %}
+
             </form>
 
         </div>

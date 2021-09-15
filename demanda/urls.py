@@ -13,7 +13,7 @@ routerDemanda.register('documentos', DocumentoViewSet)
 routerDemanda.register('historicosdocumento', HistoricoDocumentoViewSet)
 
 urlpatterns = [
-    path('', ListaDemandas.as_view(), name='index'),
+    path('todos_documentos', ListaDemandas.as_view(), name='index'),
     path('documentos/', DocumentosAPIView.as_view(), name='documentos'),
     path('historicodocumentos/', HistoricosDocumentoAPIView.as_view(), name='historicosdocumento'),
     path('documentos/<int:pk>/', DocumentoAPIView.as_view(), name='documentos'),

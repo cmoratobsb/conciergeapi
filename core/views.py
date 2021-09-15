@@ -1,16 +1,15 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import DocumentoForm
 
 from demanda.models import Documento
-
-from demanda.models import Documento, Historico_Documento
 
 
 class IndexView(ListView):
     model = Documento
     template_name = 'index.html'
-    queryset = Documento.objects.order_by('?').all()
+    queryset = Documento.objects.order_by('id').all()
     context_object_name = 'documentos'
 
 
@@ -27,8 +26,8 @@ class CreateDocumentoView(CreateView):
               'responsavel',
               'dat_ini',
               'dat_fim',
-              'dat_prorrogacao',
               'ativo']
+
     success_url = reverse_lazy('index')
 
 
@@ -45,6 +44,11 @@ class UpdateDocumentoView(UpdateView):
               'responsavel',
               'dat_ini',
               'dat_fim',
-              'dat_prorrogacao',
               'ativo']
+    success_url = reverse_lazy('index')
+
+
+class DeleteDocumentoView(DeleteView):
+    model = Documento
+    template_name = 'documento_del.html'
     success_url = reverse_lazy('index')

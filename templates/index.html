@@ -1,47 +1,70 @@
 {% extends 'base.html' %}
-{% load bootstrap4 %}
-{% load font_awesome %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
 {% block content %}
 <div class="jumbotron">
+    {% bootstrap_messages %}
     <h1>Lista de Demandas</h1>
     <table class="table table-striped table-bordered">
         <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Diretoria</th>
-                <th scope="col">Titulo do documento</th>
-                <th scope="col">Tipo de Documento</th>
-                <th scope="col">Situação</th>
-                <th scope="col">Responsavel</th>
-                <th scope="col">Data de Inicio</th>
-                <th scope="col">Data Prevista</th>
-                <th scope="col">Data Fim</th>
-                <th scope="col">Ação</th>
-            </tr>
+        <tr>
+            <th class="md-center" scope="col">#</th>
+            <th class="md-center" scope="col">Diretoria</th>
+            <th class="md-center" scope="col">Titulo do documento</th>
+            <th class="md-center" scope="col">Tipo de Documento</th>
+            <th class="md-center" scope="col">Situação</th>
+            <th class="md-center" scope="col">Responsavel</th>
+            <th class="md-center" scope="col">Data de Inicio</th>
+            <th class="md-center" scope="col">Data Prevista</th>
+            <th class="md-center" scope="col">Data Fim</th>
+            <th class="md-center" scope="col"><a class="btn" href="{% url 'add_documento' %}">{% bs_icon 'bookmark-plus' color='green' %}</a> Ação</th>
+        </tr>
         </thead>
         <tbody>
-            {% for documento in documentos %}
-            <tr>
-                <td scope="row">{{ documento.id }}</td>
-                <td scope="row">{{ documento.diretoria }}</td>
-                <td scope="row">{{ documento.titulo_documento }}</td>
-                <td scope="row">{{ documento.tipo_documento }}</td>
-                <td scope="row">{{ documento.situacao }}</td>
-                <td scope="row">{{ documento.responsavel }}</td>
-                <td scope="row">{{ documento.dat_ini }}</td>
+        {% for documento in documentos %}
+        <tr>
+            <td scope="row">{{ documento.id }}</td>
+            <td scope="row">{{ documento.diretoria }}</td>
+            <td scope="row">{{ documento.titulo_documento }}</td>
+            <td scope="row">{{ documento.tipo_documento }}</td>
+            <td scope="row">{{ documento.situacao }}</td>
+            <td scope="row">{{ documento.responsavel }}</td>
+            <td scope="row">{{ documento.dat_ini }}</td>
+            {% if documento.dat_prevista != None %}
                 <td scope="row">{{ documento.dat_prevista }}</td>
-                <td scope="row">{{ documento.dat_ini }}</td>
-                <td scope="row">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-primary" href="{% url 'index' %}">+</i></a>
-                        <a class="btn btn-danger" href="#">-</i></a>
-                        <a class="btn btn-info" href="#">{}</a>
-                    </div>
+            {% else %}
+                <td scope="row"> - </td>
+            {% endif %}
+            {% if documento.dat_fim != None %}
+                <td scope="row">{{ documento.dat_fim }}</td>
+            {% else %}
+                <td scope="row"> - </td>
+            {% endif %}
 
-                </td>
-            </tr>
-            {% endfor %}
+            <td scope="row">
+                <div class="btn-group btn-group-justified" role="group" aria-label="Basic example">
+                    <a class="btn" href="{% url 'upd_documento' documento.id %}">{% bs_icon 'pencil' color='blue' %}</a>
+                    <a class="btn" href="{% url 'del_documento' documento.id %}">{% bs_icon 'bookmark-dash' color='red' %}</a>
+                </div>
+
+            </td>
+        </tr>
+        {% endfor %}
         </tbody>
     </table>
+    <div class="col">
+        <a class="btn btn-primary" href="{% url 'login' %}">{% bs_icon 'person-x-fill' color='white' %} SAIR</a>
+    </div>
 
-{% endblock %}
+    {% endblock %}
+</div>
+{% bootstrap_javascript %}
+<script>
+$(document).ready(function(){
+    $(".btn").click(function(e){
+        e.preventDefault();
+        $(".box-preco").css("right", "-245px");
+    });
+});
+
+</script>

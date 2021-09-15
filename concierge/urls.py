@@ -21,12 +21,11 @@ from django.conf.urls.static import static
 from demanda.urls import routerDemanda
 from administrativo.urls import routerAdministrativo
 
-
 urlpatterns = [
-    path('', include('core.urls')),
-    path('api/v2/demanda/', include(routerDemanda.urls)),
-    path('api/v2/administrativo/', include(routerAdministrativo.urls)),
-    path('painel/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
-    path('auths/', include('django.contrib.auth.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('', include('core.urls')),
+                  path('api/v2/demanda/', include(routerDemanda.urls)),
+                  path('api/v2/administrativo/', include(routerAdministrativo.urls)),
+                  path('painel/', admin.site.urls),
+                  path('api-auth/', include('rest_framework.urls')),
+                  path('auths/', include('django.contrib.auth.urls'))
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
