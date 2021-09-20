@@ -13,30 +13,6 @@ class ListaDemandas(generic.ListView):
     template_name = 'listaDemandas.html'
 
 
-class DocumentosAPIView(generics.ListCreateAPIView):
-    queryset = Documento.objects.all()
-    serializer_class = DocumentoSerializer
-
-
-class DocumentoAPIView(generics.RetrieveDestroyAPIView):
-    queryset = Documento.objects.all()
-    serializer_class = DocumentoSerializer
-
-
-class HistoricosDocumentoAPIView(generics.ListCreateAPIView):
-    queryset = Historico_Documento.objects.all()
-    serializer_class = HistoricoDocumentoSerializer
-
-
-class HistoricoDocumentoAPIView(generics.RetrieveDestroyAPIView):
-    queryset = Historico_Documento.objects.all()
-    serializer_class = HistoricoDocumentoSerializer
-
-
-'''
-API V1
-'''
-
 class DocumentoViewSet(viewsets.ModelViewSet):
     queryset = Documento.objects.all()
     serializer_class = DocumentoSerializer

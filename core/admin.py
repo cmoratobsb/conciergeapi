@@ -2,9 +2,9 @@ from django.contrib import admin
 
 from .models import Agenda_Auditorias, Tipo_Documento
 
-admin.site.site_header = 'Concierge GPB'
-admin.site.index_title = "Concierge Segurança"
-admin.site.site_title = "Concierge"
+admin.site.site_header = 'Obrigações GAP'
+admin.site.index_title = 'Obrigações GAP'
+admin.site.site_title = 'Obrigações GAP'
 
 
 @admin.register(Agenda_Auditorias)

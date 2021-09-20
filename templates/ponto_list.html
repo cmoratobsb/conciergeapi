@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load render_table from django_tables2 %}
+{% block content %}
+  <h3 class="display-5">Demandas a vencer</h3>
+    {% render_table object_list %}
+{% endblock%}

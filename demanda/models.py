@@ -39,8 +39,8 @@ class Documento(BaseModel):
         verbose_name = 'Documento'
         verbose_name_plural = 'Documentos'
 
-        def __str__(self):
-            return str(self.titulo_documento)
+    def __str__(self):
+        return str(self.titulo_documento)
 
 
 class Historico_Documento(BaseModel):
@@ -54,8 +54,8 @@ class Historico_Documento(BaseModel):
         verbose_name = 'Historico de Documento'
         verbose_name_plural = 'Historicos de Documentos'
 
-        def __str__(self):
-            return str(self.id) + ' | ' + str(self.descricao)
+    def __str__(self):
+        return str(self.id) + ' | ' + str(self.descricao)
 
 
 class Csp(BaseModel):
@@ -72,8 +72,8 @@ class Csp(BaseModel):
         verbose_name = 'CSP'
         verbose_name_plural = 'CSPs'
 
-        def __str__(self):
-            return str(self.num_csp)
+    def __str__(self):
+        return str(self.num_csp)
 
 
 class Ponto(BaseModel):
@@ -86,8 +86,8 @@ class Ponto(BaseModel):
         verbose_name = 'Ponto'
         verbose_name_plural = 'Pontos'
 
-        def __str__(self):
-            return str(self.nome)
+    def __str__(self):
+        return str(self.nome)
 
 
 class Recomendacao(BaseModel):
@@ -102,5 +102,5 @@ class Recomendacao(BaseModel):
         verbose_name = 'Recomendação'
         verbose_name_plural = 'Recomendações'
 
-        def __str__(self):
-            return str(self.nome)
+    def __str__(self):
+        return str(self.nome)
